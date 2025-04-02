@@ -79,8 +79,8 @@ func IsAnagrams4(source, target string) bool {
 		targetCount[rune]++
 	}
 
-	for letter, sourcecount := range sourceCount {
-		if targetCount, ok := targetCount[letter]; !ok || sourcecount != targetCount {
+	for letter, sourceCountValue  := range sourceCount {
+		if targetCountValue, ok := targetCount[letter]; !ok || sourcecount != targetCount {
 			return false
 		}
 	}
