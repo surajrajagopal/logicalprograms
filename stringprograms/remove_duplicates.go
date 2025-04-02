@@ -18,3 +18,16 @@ func RemoveDuplicates(str string) map[string]int {
 	}
 	return CopiedMap
 }
+
+func removeduplicatefromslice(fruits []string) []string {
+	uniqueMap := make(map[string]bool)
+	str := []string{}
+	for _, v := range fruits {
+		if !uniqueMap[v] {
+			uniqueMap[v] = true
+			str = append(str, v)
+		}
+	}
+	return str
+}
+
