@@ -25,21 +25,29 @@ func Second_Smallest_Element1(input []int) int {
 	return second_min
 }
 
-func Second_Smallest_Element2(input []int) int {
+func SecondSmallestElement2(input []int) int {
+	if len(input) < 2 {
+		fmt.Println("Array must have at least 2 elements")
+		return -1
+	}
+
 	min := math.MaxInt64
 	second_min := math.MaxInt64
 
-	n := len(input)
-	for i := 0; i < n; i++ {
-		if input[i] < min {
+	// Single loop to find min and second min
+	for _, num := range input {
+		if num < min {
 			second_min = min
-			min = input[i]
+			min = num
+		} else if num > min && num < second_min {
+			second_min = num
 		}
 	}
-	for i := 0; i < n; i++ {
-		if input[i] != min && input[i] < second_min {
-			second_min = input[i]
-		}
+
+	if second_min == math.MaxInt64 {
+		fmt.Println("No second smallest element found")
+		return -1
 	}
+
 	return second_min
 }
